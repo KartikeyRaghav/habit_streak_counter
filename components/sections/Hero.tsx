@@ -8,25 +8,25 @@ gsap.registerPlugin(useGSAP);
 const Hero = () => {
   useGSAP(() => {
     gsap.to("#tagline", {
-      marginTop: innerWidth > 767 ? "3.5vh" : "140px",
+      marginTop: innerWidth > 767 ? "2vh" : "140px",
       opacity: 1,
       duration: 1,
-      delay: 5,
+      delay: 7.3,
     });
     gsap.to("#button", {
-      translateY: "12vh",
+      translateY: innerWidth > 767 ? "8vh" : '80px',
       display: "inline-flex",
-      delay: 5.5,
+      delay: 7.8,
     });
   }, {});
   return (
-    <div className="w-[calc(100%)] rounded-md  h-screen overflow-hidden">
+    <div className="w-[calc(100%)] rounded-md h-screen overflow-hidden">
       <Vortex
         backgroundColor="black"
         rangeY={800}
         particleCount={500}
         baseHue={120}
-        className="flex items-center flex-col justify-center px-2 md:px-10  py-4 w-full h-full"
+        className="flex items-center flex-col justify-center px-2 md:px-10 py-2 w-full h-full"
       >
         <div id="home" className="flex justify-center items-center flex-col">
           <Logo />
@@ -34,8 +34,7 @@ const Hero = () => {
             id="tagline"
             className="z-10 text-[3vw] text-xl md:text-3xl lg:text-4xl tracking-widest opacity-0 px-20 text-center"
           >
-            Small Habits,{" "}
-            <span className="whitespace-nowrap">Big Impact</span>
+            Small Habits, <span className="whitespace-nowrap">Big Impact</span>
           </p>
 
           <a href="#english">

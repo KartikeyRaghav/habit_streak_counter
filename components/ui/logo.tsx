@@ -53,7 +53,7 @@ const Logo = () => {
         "#logo-left-small-down",
       ],
       {
-        translateX: "-2vw",
+        translateX: innerWidth > 767 ? "-2vw" : "-15.36px",
       }
     );
     right_tl.to(
@@ -65,27 +65,27 @@ const Logo = () => {
         "#logo-right-small-up",
         "#logo-right-small-down",
       ],
-      { translateX: "2vw", delay: 2 }
+      { translateX: innerWidth > 767 ? "2vw" : "15.36px", delay: 2 }
     );
     tl.to(["#logo-left-small-down", "#logo-left-slant"], {
       scaleY: 0.6,
-      translateX: "-7.5vw",
+      translateX: innerWidth > 767 ? "-7.5vw" : "-57.6px",
     });
     right_tl.to(["#logo-right-small-down", "#logo-right-slant"], {
       scaleY: 0.6,
-      translateX: "7.5vw",
+      translateX: innerWidth > 767 ? "7.5vw" : "57.6px",
     });
     tl.to("#logo-left-slant", {
       rotate: -48,
       scaleY: 0.35,
-      translateY: "8.88vw",
-      translateX: "-4.7vw",
+      translateY: innerWidth > 767 ? "8.88vw" : "68.19px",
+      translateX: innerWidth > 767 ? "-4.7vw" : "-36px",
     });
     right_tl.to("#logo-right-slant", {
       rotate: 48,
       scaleY: 0.35,
-      translateY: "8.88vw",
-      translateX: "4.7vw",
+      translateY: innerWidth > 767 ? "8.88vw" : "68.19px",
+      translateX: innerWidth > 767 ? "4.7vw" : "36px",
     });
     tl.to(
       [
@@ -95,8 +95,8 @@ const Logo = () => {
       ],
       {
         rotate: 90,
-        translateY: "-11.25vw",
-        translateX: "-7.5vw",
+        translateY: innerWidth > 767 ? "-11.25vw" : "-86.4px",
+        translateX: innerWidth > 767 ? "-7.5vw" : "-57.6px",
       }
     );
     right_tl.to(
@@ -105,43 +105,55 @@ const Logo = () => {
         "#logo-right-horizontal-down",
         "#logo-right-small-up",
       ],
-      { rotate: 90, translateY: "-11.25vw", translateX: "7.5vw" }
+      {
+        rotate: 90,
+        translateY: innerWidth > 767 ? "-11.25vw" : "-86.4px",
+        translateX: innerWidth > 767 ? "7.5vw" : "57.6px",
+      }
     );
     tl.to(["#logo-left-small-up", "#logo-left-horizontal-up"], {
       scaleY: 0.25,
-      translateX: "-12.5vw",
-      translateY: "-13.15vw",
+      translateX: innerWidth > 767 ? "-12.5vw" : "-96px",
+      translateY: innerWidth > 767 ? "-13.15vw" : "-100.992",
       rotate: 0,
     });
     right_tl.to(["#logo-right-small-up", "#logo-right-horizontal-up"], {
       scaleY: 0.25,
-      translateX: "12.5vw",
-      translateY: "-13.15vw",
+      translateX: innerWidth > 767 ? "12.5vw" : "96px",
+      translateY: innerWidth > 767 ? "-13.15vw" : "-100.992",
       rotate: 0,
     });
     tl.to(["#logo-left-horizontal-up"], {
       rotate: 90,
       scaleY: 0.5,
-      translateY: "-15vw",
-      translateX: "-7.5vw",
+      translateY: innerWidth > 767 ? "-15vw" : "-115.2px",
+      translateX: innerWidth > 767 ? "-7.5vw" : "-57.6px",
     });
     right_tl.to(["#logo-right-horizontal-up"], {
       rotate: 90,
       scaleY: 0.5,
-      translateY: "-15vw",
-      translateX: "7.5vw",
+      translateY: innerWidth > 767 ? "-15vw" : "-115.2px",
+      translateX: innerWidth > 767 ? "7.5vw" : "57.6px",
     });
-    tl.to("#inner_logo", {
-      translateX: "-30vw",
-      duration: 1.5,
-      delay: 0.7,
-    });
-    right_tl.to("#name", {
-      translateX: "42vw",
-      delay: 1,
-      duration: 1.2,
-      opacity: 1,
-    });
+    if (innerWidth > 767) {
+      tl.to("#inner_logo", {
+        translateX: "-30vw",
+        duration: 1.5,
+        delay: 0.7,
+      });
+      right_tl.to("#name", {
+        translateX: "42vw",
+        delay: 1,
+        duration: 1.2,
+        opacity: 1,
+      });
+    } else {
+      tl.to("#logo", {
+        scale: 0.85,
+        delay: 0.5,
+        duration: 0.8,
+      });
+    }
   }, {});
   return (
     <div id="hero" className="flex items-center mt-20 justify-center opacity-0">
@@ -157,7 +169,7 @@ const Logo = () => {
               className="absolute opacity-0 bg-white"
               style={{
                 width: "2.5vw",
-                minWidth: "11px",
+                minWidth: "19.175px",
                 height: "25vw",
                 minHeight: "192px",
                 borderRadius: "1.1vw",

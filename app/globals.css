@@ -6,7 +6,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #001427;
+  --foreground: #000;
 }
 
 html {
@@ -15,7 +15,7 @@ html {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #001427;
+    --background: #000;
     --foreground: #ededed;
   }
 }
@@ -24,7 +24,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: "Kanit", serif;
-  min-height: 100vh;
+  min-height: 200vh;
 }
 
 ::-webkit-scrollbar {
