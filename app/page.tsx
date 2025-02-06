@@ -7,7 +7,7 @@ import { navItems } from "../lib/constants/Navbar";
 export default function Home() {
   return (
     <div>
-      <FloatingNav navItems={navItems} />
+      <FloatingNav navItems={navItems} show />
       <Hero />
     </div>
   );
