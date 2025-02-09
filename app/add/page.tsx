@@ -4,6 +4,7 @@ import { FloatingNav } from "@/components/ui/floating-navbar";
 import { navItems } from "@/lib/constants/Navbar";
 import { IconCalendar, IconCalendarWeekFilled } from "@tabler/icons-react";
 import { useState } from "react";
+import Option from "../../components/ui/option";
 
 const addHabit = () => {
   const [selected, setselected] = useState(0);
@@ -24,23 +25,13 @@ const addHabit = () => {
             icon: <IconCalendar color="orange" size={"2rem"} />,
           },
         ].map((item, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setselected(i);
-            }}
-          >
-            <div
-              className={`flex items-center bg-slate-900 p-5 ${
-                selected === i ? "border-2" : ""
-              } rounded-3xl`}
-            >
-              <div>{item.icon}</div>
-              <div className="ml-2">
-                <p className="text-[2rem]">{item.text}</p>
-              </div>
-            </div>
-          </button>
+          <Option
+            text={item.text}
+            icon={item.icon}
+            index={i}
+            selected={selected}
+            setselected={setselected}
+          />
         ))}
       </div>
     </section>

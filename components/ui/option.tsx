@@ -6,17 +6,24 @@ const Option = ({
   setselected,
   icon,
   text,
+  classChange,
+  setactive,
 }: {
   index: number;
   selected: number;
   setselected: Function;
   icon: React.ReactNode;
   text: string;
+  classChange?: boolean;
+  setactive?: Function;
 }) => {
   return (
     <button
       onClick={() => {
         setselected(index);
+        if (classChange) {
+          setactive!(index);
+        }
       }}
     >
       <div
