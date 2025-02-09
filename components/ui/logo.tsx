@@ -156,7 +156,7 @@ const Logo = () => {
     }
   }, {});
   return (
-    <div id="hero" className="flex items-center mt-20 justify-center opacity-0">
+    <div id="hero" className="flex items-center justify-center opacity-0">
       <div id="logo">
         <div
           id="inner_logo"

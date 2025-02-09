@@ -1,7 +1,6 @@
 "use client";
 
-import { FloatingNav } from "@/components/ui/floating-navbar";
-import { navItems } from "@/lib/constants/Navbar";
+import { links } from "@/lib/constants/Navbar";
 import {
   IconBrandFacebookFilled,
   IconBrandGithubFilled,
@@ -12,14 +11,31 @@ import {
 } from "@tabler/icons-react";
 import { useState } from "react";
 import Option from "../../components/ui/option";
+import { FloatingDock } from "@/components/ui/floating-dock";
+import { ToastContainer, toast } from "react-toastify";
+
 const Auth = () => {
   const [selected, setselected] = useState(0);
   const [active, setactive] = useState(0);
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [name, setname] = useState("");
+
+  const notify = () => {
+    toast.info("Feature Under Development!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
 
   return (
     <section className="py-5 px-10 flex flex-col">
-      <FloatingNav navItems={navItems} show={false} />
-
       <h1 className="text-center text-[3rem] font-bold">
         {selected === 0 ? "Welcome Back!" : "Welcome User!"}
       </h1>
@@ -93,18 +109,30 @@ const Auth = () => {
                 className="bg-[#eee] text-[#000] text-[13px] w-full mx-0 my-2 px-[15px] py-2.5 rounded-lg border-[none]"
                 type="text"
                 placeholder="Name"
+                value={name}
+                onChange={(e) => setname(e.target.value)}
               />
               <input
                 className="bg-[#eee] text-[#000]  text-[13px] w-full mx-0 my-2 px-[15px] py-2.5 rounded-lg border-[none]"
                 type="email"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
               />
               <input
                 className="bg-[#eee] text-[#000] text-[13px] w-full mx-0 my-2 px-[15px] py-2.5 rounded-lg border-[none]"
                 type="password"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
               />
-              <button className="bg-darkRed text-white text-xs border font-semibold tracking-[0.5px] uppercase cursor-pointer mt-2.5 px-[45px] py-2.5 rounded-lg border-solid border-transparent">
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  notify();
+                }}
+                className="bg-darkRed text-white text-xs border font-semibold tracking-[0.5px] uppercase cursor-pointer mt-2.5 px-[45px] py-2.5 rounded-lg border-solid border-transparent"
+              >
                 Sign Up
               </button>
             </form>
@@ -144,14 +172,18 @@ const Auth = () => {
               </div>
               <span className="text-xs">or use your email password</span>
               <input
-                className="bg-[#eee] text-[#000] text-[13px] w-full mx-0 my-2 px-[15px] py-2.5 rounded-lg border-[none]"
+                className="bg-[#eee] text-[#000]  text-[13px] w-full mx-0 my-2 px-[15px] py-2.5 rounded-lg border-[none]"
                 type="email"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
               />
               <input
                 className="bg-[#eee] text-[#000] text-[13px] w-full mx-0 my-2 px-[15px] py-2.5 rounded-lg border-[none]"
                 type="password"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
               />
               <a
                 className=" text-[13px] no-underline mt-[15px] mb-2.5 mx-0"
@@ -159,14 +191,22 @@ const Auth = () => {
               >
                 Forget Your Password?
               </a>
-              <button className="bg-darkRed text-white text-xs border font-semibold tracking-[0.5px] uppercase cursor-pointer mt-2.5 px-[45px] py-2.5 rounded-lg border-solid border-transparent">
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  notify();
+                }}
+                className="bg-darkRed text-white text-xs border font-semibold tracking-[0.5px] uppercase cursor-pointer mt-2.5 px-[45px] py-2.5 rounded-lg border-solid border-transparent"
+              >
                 Sign In
               </button>
             </form>
           </div>
           <div
-            className={`toggle-container absolute w-6/12 h-full overflow-hidden transition-all duration-[0.6s] ease-[ease-in-out] z-[1000] rounded-[150px_0_0_100px] left-2/4 top-0 ${
-              active === 1 ? "-translate-x-full rounded-[0_150px_100px_0]" : ""
+            className={`toggle-container absolute w-6/12 h-full overflow-hidden transition-all duration-[0.6s] ease-[ease-in-out] z-[1000] left-2/4 top-0 ${
+              active === 1
+                ? "-translate-x-full rounded-[0_150px_100px_0]"
+                : "rounded-[150px_0_0_100px]"
             }`}
           >
             <div
@@ -199,6 +239,24 @@ const Auth = () => {
           </div>
         </div>
       </div>
+      <div className="flex items-center w-fit self-center mt-5 justify-center bg-transparent sticky bottom-0 z-[111111]">
+        <FloatingDock
+          // mobileClassName="translate-y-20" // only for demo, remove for production
+          items={links}
+        />
+      </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </section>
   );
 };

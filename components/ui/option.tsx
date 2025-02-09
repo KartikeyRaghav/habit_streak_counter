@@ -14,15 +14,15 @@ const Option = ({
   setselected: Function;
   icon: React.ReactNode;
   text: string;
-  classChange?: boolean;
-  setactive?: Function;
+  classChange: boolean;
+  setactive: Function;
 }) => {
   return (
     <button
       onClick={() => {
         setselected(index);
         if (classChange) {
-          setactive!(index);
+          setactive(index);
         }
       }}
     >
