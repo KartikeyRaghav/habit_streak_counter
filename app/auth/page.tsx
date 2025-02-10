@@ -1,6 +1,5 @@
 "use client";
 
-import { links } from "@/lib/constants/Navbar";
 import {
   IconBrandFacebookFilled,
   IconBrandGithubFilled,
@@ -11,7 +10,6 @@ import {
 } from "@tabler/icons-react";
 import { useState } from "react";
 import Option from "../../components/ui/option";
-import { FloatingDock } from "@/components/ui/floating-dock";
 import { ToastContainer, toast } from "react-toastify";
 import Dock from "@/components/ui/Dock";
 import Footer from "@/components/sections/Footer";
@@ -37,7 +35,7 @@ const Auth = () => {
   };
 
   return (
-    <section className="py-5 px-5 md:px-10 flex flex-col">
+    <section className="py-5 px-5 md:px-10 flex flex-col min-h-[100vh]">
       <h1 className="text-center text-[2rem] md:text-[3rem] font-bold">
         {selected === 0 ? "Welcome Back!" : "Welcome User!"}
       </h1>

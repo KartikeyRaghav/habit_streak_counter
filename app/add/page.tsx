@@ -6,7 +6,7 @@ import PreDefinedTasks from "./PreDefinedTasks";
 
 const addHabit = () => {
   return (
-    <section className="py-5 px-5 md:px-10 flex flex-col">
+    <section className="py-5 px-5 md:px-10 flex flex-col min-h-[100vh]">
       <h1 className="text-center text-[3rem] font-bold">Create New Habit</h1>
       <AddTask />
       <PreDefinedTasks />
