@@ -1,4 +1,4 @@
-# Habit Tracker
+# Track Bit
 ## Overview
 Habit Tracker is a web application designed to help users maintain a list of daily habits and monitor their progress over time. The project is built using React.js, Tailwind CSS, and GSAP for animations.
 
