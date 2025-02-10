@@ -27,13 +27,13 @@ const Option = ({
       }}
     >
       <div
-        className={`flex items-center bg-slate-900 p-5 ${
+        className={`flex items-center bg-slate-900 p-3 md:p-5 ${
           selected === index ? "border-2" : ""
-        } rounded-3xl`}
+        } rounded-xl md:rounded-3xl`}
       >
         <div>{icon}</div>
         <div className="ml-2">
-          <p className="text-[2rem]">{text}</p>
+          <p className="md:text-[2rem]">{text}</p>
         </div>
       </div>
     </button>
