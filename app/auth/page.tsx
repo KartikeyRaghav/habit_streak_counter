@@ -14,6 +14,7 @@ import Option from "../../components/ui/option";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { ToastContainer, toast } from "react-toastify";
 import Dock from "@/components/ui/Dock";
+import Footer from "@/components/sections/Footer";
 
 const Auth = () => {
   const [selected, setselected] = useState(0);
@@ -249,6 +250,7 @@ const Auth = () => {
           </div>
         </div>
       </div>
+      <Footer />
       <Dock />
       <ToastContainer
         position="bottom-right"

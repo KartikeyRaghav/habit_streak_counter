@@ -5,6 +5,7 @@ import { useState } from "react";
 import Option from "../../components/ui/option";
 import { ToastContainer, toast } from "react-toastify";
 import Dock from "@/components/ui/Dock";
+import Footer from "@/components/sections/Footer";
 
 const addHabit = () => {
   const [selected, setselected] = useState(0);
@@ -72,7 +73,9 @@ const addHabit = () => {
             }`}
           >
             <form className="bg-[#001427] flex items-center justify-center flex-col h-full px-8 md:px-10 py-0">
-              <h1 className="text-[2rem] my-5 md:my-0 font-semibold">New Task</h1>
+              <h1 className="text-[2rem] my-5 md:my-0 font-semibold">
+                New Task
+              </h1>
               <input
                 type="text"
                 value={taskName}
@@ -212,6 +215,7 @@ const addHabit = () => {
           </div>
         </div>
       </div>
+      <Footer />
       <Dock />
       <ToastContainer
         position="bottom-right"
