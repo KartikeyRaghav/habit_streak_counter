@@ -17,6 +17,9 @@ export default {
         red: "#BF0603",
         darkRed: "#8D0801",
       },
+      backgroundImage: {
+        "habit-1": "url('/assets/habit 1.jpg')",
+      },
     },
   },
   plugins: [],
