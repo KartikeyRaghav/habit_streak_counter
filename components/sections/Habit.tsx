@@ -30,7 +30,7 @@ const Habits = () => {
   const ref = useOutsideClick(() => setActive(null));
 
   return (
-    <>
+    <section id="habit">
       <AnimatePresence>
         {active && typeof active === "object" && (
           <motion.div
@@ -168,7 +168,7 @@ const Habits = () => {
           ))}
         </ul>
       </section>
-    </>
+    </section>
   );
 };
 
